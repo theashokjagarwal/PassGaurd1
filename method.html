@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PassGuard — Method</title>
+  <meta name="description" content="How PassGuard scores passwords locally with an inspectable additive rule engine.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/vault.css">
+</head>
+<body>
+  <div class="cold" id="cold" aria-hidden="true"><div class="keyhole"></div></div>
+  <div class="stage">
+    <canvas id="world"></canvas>
+    <div class="css-fallback" id="css-fallback"><div class="css-lock"></div></div>
+    <div class="hud method">
+      <header class="topbar">
+        <div class="brand">
+          <h1><span class="sigil"></span>PASSGUARD</h1>
+          <p>Scoring method — viva briefing</p>
+        </div>
+        <nav>
+          <a href="index.html">Vault</a>
+          <a href="evaluate.html">Evaluation Lab</a>
+          <a class="active" href="method.html">Method</a>
+        </nav>
+      </header>
+      <article class="glass" style="padding:28px;max-width:820px;margin:0 auto;">
+        <p class="kicker">Scene 03 / Method</p>
+        <h2>Inspectable additive scoring</h2>
+        <p>PassGuard is a local rule engine. <code>PassGuard.getScore(password)</code> returns 0–100 in the browser. Passwords are never sent to a server.</p>
+        <h3>Bands</h3>
+        <pre>0–19     Very Weak
+20–39    Weak
+40–59    Medium
+60–79    Strong
+80–100   Very Strong</pre>
+        <h3>Credits</h3>
+        <p>Length (up to 40), character classes (lower, upper, digit, special), uniqueness, and mixed-length bonuses.</p>
+        <h3>Penalties</h3>
+        <p>Repeats, sequences, keyboard walks, calendar years, dictionary stems, digits-only, and short length.</p>
+        <h3>Hard caps (security)</h3>
+        <p>Exact common-list hits are capped at Very Weak. Leetspeak variants of common passwords are capped at Weak. The labelled weak set is designed for a 0% false-negative rate (weak never scored Strong / Very Strong).</p>
+        <h3>Crack time</h3>
+        <p>An educational estimate only — Instantly, minutes, days, years, centuries. It is not a real-world guarantee.</p>
+        <h3>Comparison</h3>
+        <p>Dropbox zxcvbn is loaded client-side in the lab. Agreement is reported as a KPI. Disagreement is expected: zxcvbn is statistical; PassGuard is a transparent viva-ready rule sheet.</p>
+        <p class="mute">Source of truth: js/passguard.js. Tests: npm test or node js/run-tests.js.</p>
+      </article>
+    </div>
+  </div>
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="js/passguard.js"></script>
+  <script src="js/vault-3d.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

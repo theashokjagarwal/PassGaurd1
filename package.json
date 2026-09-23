@@ -1,0 +1,13 @@
+{
+  "name": "passguard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cinematic client-side password strength analyser with evaluation lab",
+  "scripts": {
+    "test": "node js/run-tests.js",
+    "start": "python3 serve.py"
+  },
+  "dependencies": {
+    "zxcvbn": "^4.4.2"
+  }
+}

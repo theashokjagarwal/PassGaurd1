@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PassGuard — Vault</title>
+  <meta name="description" content="Client-side cinematic password strength analyser. Nothing leaves the browser.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/vault.css">
+</head>
+<body>
+  <a class="skip" href="#password">Skip to password terminal</a>
+  <div class="cold" id="cold" aria-hidden="true"><div class="keyhole"></div></div>
+  <div class="stage">
+    <canvas id="world"></canvas>
+    <div class="css-fallback" id="css-fallback"><div class="css-lock"></div></div>
+    <div class="hud">
+      <header class="topbar">
+        <div class="brand">
+          <h1><span class="sigil"></span>PASSGUARD</h1>
+          <p>Smart Password Strength Analyzer — local vault briefing</p>
+        </div>
+        <nav>
+          <a class="active" href="index.html">Vault</a>
+          <a href="evaluate.html">Evaluation Lab</a>
+          <a href="method.html">Method</a>
+        </nav>
+      </header>
+      <div class="layout">
+        <section class="glass terminal">
+          <p class="kicker">Scene 01 / Vault</p>
+          <h2>Holographic terminal</h2>
+          <div class="field">
+            <label for="password">Enter a password to test</label>
+            <div class="input-row">
+              <input id="password" type="password" autocomplete="off" spellcheck="false" placeholder="Enter a password to test">
+              <button class="ghost" id="toggle" type="button">Show</button>
+              <button class="ghost" id="clear" type="button">Clear</button>
+            </div>
+          </div>
+          <div class="chips" id="chips" aria-label="Demo passwords"></div>
+          <div class="result">
+            <div class="scoreline">
+              <strong id="score">0 / 100</strong>
+              <span class="band" id="band">Very Weak</span>
+            </div>
+            <p class="crack" id="crack">Estimated crack time: Instantly</p>
+            <div class="stamp" id="stamp">KNOWN LEAK</div>
+            <ul class="checks" id="checks"></ul>
+          </div>
+        </section>
+        <aside class="glass side">
+          <p class="kicker">Lock morph</p>
+          <h2>Energy ring</h2>
+          <p class="note">
+            Type in the terminal. The lock rusts on Very Weak, spins on Medium,
+            and seals with gold seams on Very Strong. Scoring never leaves this machine.
+          </p>
+          <p class="mute">Mute by default. Camera idle-drifts. Prefer-reduced-motion is honoured.</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="js/passguard.js"></script>
+  <script src="js/test-suite.js"></script>
+  <script src="js/vault-3d.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
